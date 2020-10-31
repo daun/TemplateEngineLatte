@@ -1,0 +1,4 @@
+/vendor
+
+# Ignore tests for now
+tests

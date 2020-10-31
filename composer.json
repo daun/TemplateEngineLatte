@@ -1,0 +1,33 @@
+{
+    "name": "daun/template-engine-latte",
+    "type": "pw-module",
+    "description": "ProcessWire module adding Latte to the TemplateEngineFactory",
+    "keywords": [ "latte-engine", "latte", "processwire"],
+    "homepage": "https://github.com/daun/TemplateEngineLatte",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Philipp Daun",
+            "email": "post@philippdaun.net",
+            "homepage": "https://github.com/daun"
+        },
+        {
+            "name": "TemplateEngineLatte Contributors",
+            "homepage": "https://github.com/daun/TemplateEngineLatte/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "hari/pw-module": "~1.0",
+        "latte/latte": "^2.0",
+        "wanze/template-engine-factory": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TemplateEngineLatte\\Test\\": "tests/src/"
+        }
+    }
+}
