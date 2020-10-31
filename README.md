@@ -1,11 +1,12 @@
 # TemplateEngineLatte
 
 [![Build Status](https://travis-ci.org/daun/TemplateEngineLatte.svg?branch=master)](https://travis-ci.org/daun/TemplateEngineLatte)
-[![StyleCI](https://github.styleci.io/repos/21304492/shield?branch=master)](https://github.styleci.io/repos/21304492)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![ProcessWire 3](https://img.shields.io/badge/ProcessWire-3.x-orange.svg)](https://github.com/processwire/processwire)
 
-A ProcessWire module adding Latte to the [TemplateEngineFactory](https://github.com/wanze/TemplateEngineFactory).
+<!-- [![StyleCI](https://github.styleci.io/repos/21304492/shield?branch=master)](https://github.styleci.io/repos/21304492) -->
+
+A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEngineFactory](https://github.com/wanze/TemplateEngineFactory).
 
 ## Requirements
 
@@ -59,7 +60,7 @@ Both of these will resolve to `site/templates/views/partials/navigation.latte`:
 It is possible to extend Latte after it has been initialized by the module. Hook the method `TemplateEngineLatte::initLatte`
 to register custom macros, filters, functions etc.
 
-Here is an example how you can use the provided hook to attach a custom function.
+Here is an example how you can use the provided hook to add custom macros and filters.
 
 ```php
 wire()->addHookAfter('TemplateEngineLatte::initLatte', function (HookEvent $event) {
@@ -75,12 +76,6 @@ wire()->addHookAfter('TemplateEngineLatte::initLatte', function (HookEvent $even
         'if (get_class(%node.word) === "ProcessWire\Page" && %node.word->id) {',
     '}');
 });
-```
-
-And then use them anywhere in a Latte template:
-
-```latte
-    Hello, {$world|lower}
 ```
 
 > The above hook can be put in your `site/init.php` file. If you prefer to use modules, put it into the module's `init()`
