@@ -1,10 +1,9 @@
 # TemplateEngineLatte
 
 [![Build Status](https://travis-ci.org/daun/TemplateEngineLatte.svg?branch=master)](https://travis-ci.org/daun/TemplateEngineLatte)
+[![StyleCI](https://github.styleci.io/repos/308988747/shield?branch=master)](https://github.styleci.io/repos/308988747)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![ProcessWire 3](https://img.shields.io/badge/ProcessWire-3.x-orange.svg)](https://github.com/processwire/processwire)
-
-<!-- [![StyleCI](https://github.styleci.io/repos/21304492/shield?branch=master)](https://github.styleci.io/repos/21304492) -->
 
 A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEngineFactory](https://github.com/wanze/TemplateEngineFactory).
 
