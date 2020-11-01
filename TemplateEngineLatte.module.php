@@ -136,7 +136,7 @@ class TemplateEngineLatte extends WireData implements Module, ConfigurableModule
         $field->label = __('Clear Latte cache');
         $field->description = __('Forces all templates to be recompiled by emptying the temp directory used by Latte.');
         $field->name = 'clear_temp';
-        $field->checked = (bool) $data['clear_temp'];
+        $field->checked = false;
         $wrapper->append($field);
 
         return $wrapper;
