@@ -5,6 +5,8 @@ namespace TemplateEngineLatte;
 use Latte\Engine;
 use TemplateEngineFactory\TemplateEngineBase;
 
+use function ProcessWire\wire;
+
 /**
  * Provides the Latte template engine.
  */
