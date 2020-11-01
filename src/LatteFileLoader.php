@@ -67,7 +67,7 @@ class LatteFileLoader extends FileLoader
     private function leftTrim($str, $needle)
     {
         if (stripos($str, $needle) === 0) {
-                $str = substr($str, strlen($needle));
+            $str = substr($str, strlen($needle));
         }
         return $str;
     }
