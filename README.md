@@ -11,7 +11,7 @@ A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEn
 
 * ProcessWire `3.0` or newer
 * TemplateEngineFactory `2.0` or newer
-* PHP >= `7.0` for version `2.x`, PHP >= `7.2.5` for version `3.x`
+* PHP `7.1` or newer
 * Composer
 
 ## Installation
