@@ -1,6 +1,9 @@
 {
     "name": "daun/template-engine-latte",
-    "type": "pw-module",
+    "type": "processwire-module",
+    "extra": {
+        "installer-name": "TemplateEngineLatte"
+    },
     "description": "ProcessWire module adding Latte to the TemplateEngineFactory",
     "keywords": [ "latte-engine", "latte", "processwire"],
     "homepage": "https://github.com/daun/TemplateEngineLatte",
@@ -18,7 +21,7 @@
     ],
     "require": {
         "php": ">=7.0",
-        "hari/pw-module": "~1.0",
+        "composer/installers": "~1.0",
         "latte/latte": "^2.0",
         "wanze/template-engine-factory": "^2.0"
     },
