@@ -65,6 +65,9 @@ class TemplateEngineLatte extends TemplateEngineBase
         $latte->setAutoRefresh((bool) $this->moduleConfig['auto_refresh']);
 
         if ($this->moduleConfig['simple_path_resolution']) {
+            // Simple path resolution:
+            // - prepend root path to all loaded views and partials
+            // - allow dot syntax for directory traversal
             $loader = new LatteFileLoader($root, $suffix, ['dotTraversal' => true]);
         } else {
             $loader = new LatteFileLoader(null, $suffix);
@@ -137,11 +140,13 @@ class TemplateEngineLatte extends TemplateEngineBase
             $path = "{$path}.{$suffix}";
         }
 
-        // Prepend root path
-        if (!$this->moduleConfig['simple_path_resolution']) {
-            return $this->getTemplatesRootPath() . $path;
+        if ($this->moduleConfig['simple_path_resolution']) {
+            // Simple path resolution:
+            // - don't prepend root path here (already prepended by file loader)
+            // - prefix with "./" to force meaningful cache file names
+            return "./{$path}";
         } else {
-            return $path;
+            return $this->getTemplatesRootPath() . $path;
         }
     }
 

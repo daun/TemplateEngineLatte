@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.0.5] - 2022-12-09
+
+* Force meaningful cache names for template views
+
 ## [1.0.4] - 2022-12-09
 
 * Keep original filenames in cache for easier debugging
