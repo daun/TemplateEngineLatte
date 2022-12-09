@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.0.4] - 2022-12-09
+
+* Keep original filenames in cache for easier debugging
+* Fix double slashes in template paths
+* Update Latte to version 2.11.6
+
 ## [1.0.3] - 2021-06-27
 
 * Use native composer installer
@@ -20,7 +26,8 @@
 
 * Initial release 🐦
 
-[Unreleased]: https://github.com/daun/TemplateEngineLatte/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/daun/TemplateEngineLatte/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.4
 [1.0.3]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.3
 [1.0.2]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.2
 [1.0.1]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.1

@@ -19,15 +19,33 @@ class LatteFileLoader extends FileLoader
     protected $suffix;
 
     /** @var array */
-    protected $options;
+    protected $options = [
+        'dotTraversal' => false
+    ];
 
-    public function __construct($baseDir = null, $suffix = 'latte', $options = [])
+    public function __construct(?string $baseDir = null, ?string $suffix = 'latte', array $options = [])
     {
-        $this->baseDir = $baseDir ? $this->normalizePath("$baseDir/") : null;
+        $this->baseDir = $baseDir
+            ? $this->normalizePath(rtrim($baseDir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR)
+            : null;
         $this->suffix = ltrim($suffix, '.');
-        $this->options = $options + [
-            'dotTraversal' => false,
-        ];
+        $this->options = $options + $this->options;
+    }
+
+    /**
+     * Returns referred template name.
+     */
+    public function getReferredName($file, $referringFile): string
+    {
+        // Allow dot syntax for paths resolution (if no directory separator is present)
+        if ($this->options['dotTraversal'] && strpos($file, '/') === false) {
+            $file = $this->rightTrim($file, ".{$this->suffix}");
+            $file = str_replace('.', '/', $file);
+            $file = "{$file}.{$this->suffix}";
+        } else {
+            $file = parent::getReferredName($file, $referringFile);
+        }
+        return $file;
     }
 
     /**
@@ -41,23 +59,7 @@ class LatteFileLoader extends FileLoader
             $fileName = $this->leftTrim($fileName, $this->baseDir);
         }
 
-        // Allow dot syntax for paths resolution
-        if ($this->options['dotTraversal']) {
-            $fileName = $this->rightTrim($fileName, ".{$this->suffix}");
-            $fileName = str_replace('.', '/', $fileName);
-            $fileName = "{$fileName}.{$this->suffix}";
-        }
-
         return parent::getContent($fileName);
-    }
-
-    /**
-     * Returns referred template name.
-     *
-     */
-    public function getReferredName($file, $referringFile): string
-    {
-        return $file;
     }
 
     /**

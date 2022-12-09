@@ -12,7 +12,7 @@ use function ProcessWire\wire;
  */
 class TemplateEngineLatte extends TemplateEngineBase
 {
-    const TEMP_DIR = 'TemplateEngineLatte/';
+    const TEMP_DIR = 'TemplateEngineLatte';
 
     /**
      * @var Engine
@@ -59,12 +59,10 @@ class TemplateEngineLatte extends TemplateEngineBase
     {
         $root = $this->getTemplatesRootPath();
         $suffix = $this->moduleConfig['template_files_suffix'];
-        $refresh = $this->moduleConfig['auto_refresh'];
-        $temp = $this->wire('config')->paths->cache . self::TEMP_DIR;
 
         $latte = new Engine;
-        $latte->setTempDirectory($temp);
-        $latte->setAutoRefresh(!!$refresh);
+        $latte->setTempDirectory(static::getLatteTempDirPath());
+        $latte->setAutoRefresh((bool) $this->moduleConfig['auto_refresh']);
 
         if ($this->moduleConfig['simple_path_resolution']) {
             $loader = new LatteFileLoader($root, $suffix, ['dotTraversal' => true]);
@@ -148,13 +146,21 @@ class TemplateEngineLatte extends TemplateEngineBase
     }
 
     /**
+     * Get the path to Latte's temp directory.
+     *
+     */
+    public static function getLatteTempDirPath(): string
+    {
+        return wire()->config->paths->cache . self::TEMP_DIR;
+    }
+
+    /**
      * Clear Latte's temp directory.
      *
-     * @return void
      */
     public static function clearLatteTempDir()
     {
-        $temp = wire('config')->paths->cache . self::TEMP_DIR;
+        $temp = static::getLatteTempDirPath();
         if (file_exists($temp)) {
             $files = glob($temp . '/*');
             array_map('unlink', $files);
