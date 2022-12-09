@@ -12,7 +12,7 @@ use function ProcessWire\wire;
  */
 class TemplateEngineLatte extends TemplateEngineBase
 {
-    const TEMP_DIR = 'TemplateEngineLatte/';
+    const TEMP_DIR = 'TemplateEngineLatte';
 
     /**
      * @var Engine

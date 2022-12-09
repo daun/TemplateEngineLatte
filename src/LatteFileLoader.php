@@ -23,7 +23,9 @@ class LatteFileLoader extends FileLoader
 
     public function __construct($baseDir = null, $suffix = 'latte', $options = [])
     {
-        $this->baseDir = $baseDir ? $this->normalizePath("$baseDir/") : null;
+        $this->baseDir = $baseDir
+            ? $this->normalizePath(rtrim($baseDir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR)
+            : null;
         $this->suffix = ltrim($suffix, '.');
         $this->options = $options + [
             'dotTraversal' => false,
