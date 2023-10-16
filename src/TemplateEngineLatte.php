@@ -136,7 +136,7 @@ class TemplateEngineLatte extends TemplateEngineBase
 
         $path = ltrim($path, DIRECTORY_SEPARATOR);
 
-        if (!preg_match("/\.${suffix}$/", $path)) {
+        if (!preg_match("/\.{$suffix}$/", $path)) {
             $path = "{$path}.{$suffix}";
         }
 
