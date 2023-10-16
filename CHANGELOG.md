@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.6] - 2023-10-16
+
+* Fix notice in PHP 8.2
 
 ## [1.0.5] - 2022-12-09
 
@@ -30,7 +32,8 @@
 
 * Initial release 🐦
 
-[Unreleased]: https://github.com/daun/TemplateEngineLatte/compare/v1.0.4...HEAD
+[1.0.6]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.6
+[1.0.5]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.5
 [1.0.4]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.4
 [1.0.3]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.3
 [1.0.2]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.2
