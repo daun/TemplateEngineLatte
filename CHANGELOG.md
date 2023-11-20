@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.1] - 2023-11-20
+
+* Fix module version
+
 ## [2.0.0] - 2023-11-20
 
 * Update to Latte 3
