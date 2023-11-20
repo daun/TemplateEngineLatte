@@ -7,7 +7,7 @@
 
 A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEngineFactory](https://github.com/wanze/TemplateEngineFactory).
 
-This module version installs Latte 3, which comes with breaking changes in how tags/macros are
+This module version uses Latte 3, which comes with breaking changes in how tags/macros are
 defined. If you need to keep using Latte 2, stick with major version `^1.0` of this module. Learn more about
 the [migration to Latte 3](https://latte.nette.org/en/cookbook/migration-from-latte2) and
 [upgrading macros to tags](https://tomasvotruba.com/blog/how-to-upgrade-latte-2-macro-to-latte-3-tag/).
