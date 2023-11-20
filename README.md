@@ -7,6 +7,9 @@
 
 A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEngineFactory](https://github.com/wanze/TemplateEngineFactory).
 
+This legacy module version uses Latte 2. To use to Latte 3, upgrade this module to its
+[latest version](https://github.com/daun/TemplateEngineLatte/releases).
+
 ## Requirements
 
 * ProcessWire `3.0` or newer
