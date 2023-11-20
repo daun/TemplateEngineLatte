@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.0] - 2023-11-20
+
+* Update to Latte 3
+
 ## [1.0.6] - 2023-10-16
 
 * Fix notice in PHP 8.2
@@ -32,6 +36,7 @@
 
 * Initial release 🐦
 
+[2.0.0]: https://github.com/daun/TemplateEngineLatte/releases/tag/v2.0.0
 [1.0.6]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.6
 [1.0.5]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.5
 [1.0.4]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.4

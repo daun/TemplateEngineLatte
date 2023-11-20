@@ -7,11 +7,16 @@
 
 A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEngineFactory](https://github.com/wanze/TemplateEngineFactory).
 
+This module version uses Latte 3, which comes with breaking changes in how tags/macros are
+defined. If you need to keep using Latte 2, stick with major version `^1.0` of this module. Learn more about
+the [migration to Latte 3](https://latte.nette.org/en/cookbook/migration-from-latte2) and
+[upgrading macros to tags](https://tomasvotruba.com/blog/how-to-upgrade-latte-2-macro-to-latte-3-tag/).
+
 ## Requirements
 
 * ProcessWire `3.0` or newer
 * TemplateEngineFactory `2.0` or newer
-* PHP `7.1` or newer
+* PHP `8.0` or newer
 * Composer
 
 ## Installation
@@ -19,7 +24,7 @@ A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEn
 Execute the following command in the root directory of your ProcessWire installation:
 
 ```
-composer require daun/template-engine-latte:^1.0
+composer require daun/template-engine-latte:^2.0
 ```
 
 This will install the _TemplateEngineLatte_ and _TemplateEngineFactory_ modules in one step. Afterwards, don't forget
@@ -56,8 +61,8 @@ Both of these will resolve to `site/templates/views/partials/navigation.latte`:
 
 ## Extending Latte
 
-It is possible to extend Latte after it has been initialized by the module. Hook the method `TemplateEngineLatte::initLatte`
-to register custom macros, filters, functions etc.
+It is possible to extend Latte after it has been initialized by the module. Hook the method
+`TemplateEngineLatte::initLatte` to register custom tags, filters, functions etc.
 
 Here is an example how you can use the provided hook to add custom macros and filters.
 
@@ -70,10 +75,8 @@ wire()->addHookAfter('TemplateEngineLatte::initLatte', function (HookEvent $even
     // Add filter
     $latte->addFilter('lower', function ($str) { return strtolower($str); });
 
-    // Add macro
-    $compiler->addMacro('ifispage',
-        'if (get_class(%node.word) === "ProcessWire\Page" && %node.word->id) {',
-    '}');
+    // Add custom tags via extensions
+    $latte->addExtension(new FooExtension);
 });
 ```
 
