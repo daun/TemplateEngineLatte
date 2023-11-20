@@ -7,11 +7,16 @@
 
 A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEngineFactory](https://github.com/wanze/TemplateEngineFactory).
 
+This module version installs Latte 3, which comes with breaking changes in how tags/macros are
+defined. If you need to keep using Latte 2, stick with major version `^1.0` of this module. Learn more about
+the [migration to Latte 3](https://latte.nette.org/en/cookbook/migration-from-latte2) and
+[upgrading macros to tags](https://tomasvotruba.com/blog/how-to-upgrade-latte-2-macro-to-latte-3-tag/).
+
 ## Requirements
 
 * ProcessWire `3.0` or newer
 * TemplateEngineFactory `2.0` or newer
-* PHP `7.1` or newer
+* PHP `8.0` or newer
 * Composer
 
 ## Installation
@@ -19,7 +24,7 @@ A ProcessWire module adding [Latte](https://latte.nette.org/) to the [TemplateEn
 Execute the following command in the root directory of your ProcessWire installation:
 
 ```
-composer require daun/template-engine-latte:^1.0
+composer require daun/template-engine-latte:^2.0
 ```
 
 This will install the _TemplateEngineLatte_ and _TemplateEngineFactory_ modules in one step. Afterwards, don't forget

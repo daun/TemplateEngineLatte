@@ -20,9 +20,9 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=8.0",
         "composer/installers": "~1.0",
-        "latte/latte": "^2.0",
+        "latte/latte": "^3.0",
         "wanze/template-engine-factory": "^2.0"
     },
     "autoload-dev": {
@@ -32,7 +32,6 @@
     },
     "config": {
         "allow-plugins": {
-            "hari/pw-module": true,
             "composer/installers": true
         }
     }
