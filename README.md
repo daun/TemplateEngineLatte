@@ -61,8 +61,8 @@ Both of these will resolve to `site/templates/views/partials/navigation.latte`:
 
 ## Extending Latte
 
-It is possible to extend Latte after it has been initialized by the module. Hook the method `TemplateEngineLatte::initLatte`
-to register custom macros, filters, functions etc.
+It is possible to extend Latte after it has been initialized by the module. Hook the method
+`TemplateEngineLatte::initLatte` to register custom tags, filters, functions etc.
 
 Here is an example how you can use the provided hook to add custom macros and filters.
 
@@ -75,10 +75,8 @@ wire()->addHookAfter('TemplateEngineLatte::initLatte', function (HookEvent $even
     // Add filter
     $latte->addFilter('lower', function ($str) { return strtolower($str); });
 
-    // Add macro
-    $compiler->addMacro('ifispage',
-        'if (get_class(%node.word) === "ProcessWire\Page" && %node.word->id) {',
-    '}');
+    // Add custom tags via extensions
+    $latte->addExtension(new FooExtension);
 });
 ```
 
