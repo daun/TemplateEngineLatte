@@ -16,6 +16,7 @@ class TemplateEngineLatte extends WireData implements Module, ConfigurableModule
         'template_files_suffix' => 'latte',
         'default_layout' => '',
         'api_vars_available' => 1,
+        'api_vars_overwrites' => 0,
         'simple_path_resolution' => 0,
         'auto_refresh' => 1,
     ];
@@ -109,6 +110,15 @@ class TemplateEngineLatte extends WireData implements Module, ConfigurableModule
         $field->description = __('API variables (`$pages`, `$input`, `$config`...) are accessible in Latte, e.g. `{$config}` for the config API variable.');
         $field->name = 'api_vars_available';
         $field->checked = (bool) $data['api_vars_available'];
+        $wrapper->append($field);
+
+        /** @var InputfieldCheckbox */
+        $field = $modules->get('InputfieldCheckbox');
+        $field->label = __('Allow overwriting ProcessWire API variables in controllers');
+        $field->description = __('If enabled, API variables can be overwritten in controllers, e.g. `$view->page = $someotherpage;`');
+        $field->name = 'api_vars_overwrites';
+        $field->checked = (bool) $data['api_vars_overwrites'];
+        $field->showIf = 'api_vars_available=1';
         $wrapper->append($field);
 
         /** @var \ProcessWire\InputfieldCheckbox $field */
