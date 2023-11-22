@@ -113,9 +113,16 @@ class TemplateEngineLatte extends TemplateEngineBase
      */
     private function getData(array $data)
     {
+        if (!$this->moduleConfig['api_vars_available']) {
+            return $data;
+        }
+
         // Auto-register ProcessWire API variables
-        if ($this->moduleConfig['api_vars_available']) {
-            foreach ($this->wire('all') as $name => $object) {
+        $allowWrites = $this->moduleConfig['api_vars_overwrites'] ?? false;
+        foreach ($this->wire('all') as $name => $object) {
+            if ($allowWrites) {
+                $data[$name] = $data[$name] ?? $object;
+            } else {
                 $data[$name] = $object;
             }
         }
