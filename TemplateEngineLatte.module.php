@@ -37,7 +37,7 @@ class TemplateEngineLatte extends WireData implements Module, ConfigurableModule
         return [
             'title' => 'Template Engine Latte',
             'summary' => 'Latte templates for the TemplateEngineFactory',
-            'version' => 200,
+            'version' => '2.1.0',
             'author' => 'Philipp Daun',
             'href' => 'https://github.com/daun/TemplateEngineLatte',
             'singular' => true,
