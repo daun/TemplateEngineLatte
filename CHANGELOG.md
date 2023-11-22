@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.1.0] - 2023-11-22
+
+* Allow overwriting ProcessWire API variables in views
+
 ## [2.0.1] - 2023-11-20
 
 * Fix module version
@@ -7,6 +11,10 @@
 ## [2.0.0] - 2023-11-20
 
 * Update to Latte 3
+
+## [1.1.0] - 2023-11-22
+
+* Allow overwriting ProcessWire API variables in views
 
 ## [1.0.6] - 2023-10-16
 
