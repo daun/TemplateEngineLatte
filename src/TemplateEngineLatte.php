@@ -40,7 +40,7 @@ class TemplateEngineLatte extends TemplateEngineBase
      *
      * @return Engine
      */
-    protected function getLatte()
+    public function getLatte()
     {
         if ($this->latte === null) {
             return $this->buildLatte();
