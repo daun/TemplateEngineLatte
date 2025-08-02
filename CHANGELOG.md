@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.1] - 2025-08-02
+
+* Allow access to Latte instance from outside of the module
+
 ## [1.1.0] - 2023-11-22
 
 * Allow overwriting ProcessWire API variables in views
@@ -36,6 +40,7 @@
 
 * Initial release 🐦
 
+[1.1.1]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.1.1
 [1.1.0]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.1.0
 [1.0.6]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.6
 [1.0.5]: https://github.com/daun/TemplateEngineLatte/releases/tag/v1.0.5
