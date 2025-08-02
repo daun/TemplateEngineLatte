@@ -2,6 +2,7 @@
 
 namespace ProcessWire;
 
+use Latte\Engine as Latte;
 use TemplateEngineLatte\TemplateEngineLatte as LatteEngine;
 
 /**
@@ -9,6 +10,8 @@ use TemplateEngineLatte\TemplateEngineLatte as LatteEngine;
  */
 class TemplateEngineLatte extends WireData implements Module, ConfigurableModule
 {
+    protected ?LatteEngine $engine = null;
+
     /**
      * @var array
      */
@@ -37,7 +40,7 @@ class TemplateEngineLatte extends WireData implements Module, ConfigurableModule
         return [
             'title' => 'Template Engine Latte',
             'summary' => 'Latte templates for the TemplateEngineFactory',
-            'version' => '2.1.0',
+            'version' => '2.2.0',
             'author' => 'Philipp Daun',
             'href' => 'https://github.com/daun/TemplateEngineLatte',
             'singular' => true,
@@ -55,7 +58,13 @@ class TemplateEngineLatte extends WireData implements Module, ConfigurableModule
         /** @var \ProcessWire\TemplateEngineFactory $factory */
         $factory = $this->wire('modules')->get('TemplateEngineFactory');
 
-        $factory->registerEngine('Latte', new LatteEngine($factory->getArray(), $this->getArray()));
+        $this->engine = new LatteEngine($factory->getArray(), $this->getArray());
+        $factory->registerEngine('Latte', $this->engine);
+    }
+
+    public function getLatte(): ?Latte
+    {
+        return $this->engine?->getLatte();
     }
 
     private function setDefaultConfig()
