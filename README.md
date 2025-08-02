@@ -70,7 +70,6 @@ Here is an example how you can use the provided hook to add custom macros and fi
 wire()->addHookAfter('TemplateEngineLatte::initLatte', function (HookEvent $event) {
     /** @var Latte\Engine */
     $latte = $event->arguments('latte');
-    $compiler = $latte->getCompiler();
 
     // Add filter
     $latte->addFilter('lower', function ($str) { return strtolower($str); });
